@@ -11,7 +11,6 @@ cd TechJam
 ```
 docker compose build --no-cache
 ```
-・依存パッケージのインストール
 ・dockerの起動
 ```
 docker compose up -d
