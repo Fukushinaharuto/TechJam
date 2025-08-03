@@ -11,9 +11,17 @@ cd TechJam
 ```
 docker compose build --no-cache
 ```
+・依存パッケージのインストール
 ・dockerの起動
 ```
 docker compose up -d
+```
+・.envとAPP_KEYの作成
+```
+docker compose exec api bash
+cp .env.example .env
+php artisan key:generate
+exit
 ```
 ・テーブルの作成
 ```
