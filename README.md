@@ -15,12 +15,17 @@ docker compose build --no-cache
 ```
 docker compose up -d
 ```
-・.envとAPP_KEYの作成
+・.envの作成
 ```
-docker compose exec api bash
-cp .env.example .env
-php artisan key:generate
-exit
+docker compose exec api cp .env.example .env
+```
+・APP_KEYの作成
+```
+docker compose exec api php artisan key:generate
+```
+・.env.localの作成
+```
+docker compose exec app bash -c "echo 'NEXT_PUBLIC_API_URL=http://0.0.0.0:8006/api' >> .env.local"
 ```
 ・テーブルの作成
 ```
