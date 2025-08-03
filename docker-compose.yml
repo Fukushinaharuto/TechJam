@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  app:
+    build: ./front/
+    volumes:
+      - ./front:/front
+    ports:
+      - 3006:3000
+    depends_on:
+      - api
+
+  api:
+    build: ./back/
+    volumes:
+      - ./back:/back
+    ports:
+      - 8006:8000
+    depends_on:
+      - db
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: teckjam
+      DB_USERNAME: user
+      DB_PASSWORD: password
+
+  db:
+    image: mysql:8.0
+    container_name: db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: teckjam
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+volumes:
+  db_data:
