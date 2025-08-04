@@ -1,7 +1,7 @@
 # 環境構築
 ・ ターミナルでgit cloneを行う。
 ```
-git clone　https://github.com/Fukushinaharuto/TechJam.git
+git clone https://github.com/Fukushinaharuto/TechJam.git
 ```
 ・フォルダの移動
 ```
