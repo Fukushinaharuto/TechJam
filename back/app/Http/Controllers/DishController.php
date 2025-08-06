@@ -15,4 +15,3 @@ class DishController extends Controller
         return response()->json($dishNames);
     }
 }
-
