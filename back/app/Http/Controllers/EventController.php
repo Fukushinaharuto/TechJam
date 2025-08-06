@@ -6,5 +6,10 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    //
+    public function index()
+    {
+        $events = Event::where('is_active', true)
+
+        return response()->json($events);
+    }
 }
