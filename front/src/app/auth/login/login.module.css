@@ -1,0 +1,79 @@
+:root {
+  --main-color:   #FF9F61;
+  --accent-color: #FF8A65;
+  --base-color:   #FFFFFF;
+  --card-color:   #FFF4E6;
+  --text-color:   #333333;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;    
+  justify-content: center;  
+  align-items: center;      
+  min-height: 100vh;
+}
+
+.title {
+  color: var(--text-color);
+  font-size: 1.5rem;        
+  margin-bottom: 1rem;      
+}
+
+
+.loginform input,
+.passwordform input {
+  border: none;
+  outline: none;
+}
+
+
+.formWrapper {
+  width: 90%;
+  max-width: 360px;
+  margin: 0 auto;         
+}
+
+
+.login_button {
+  display: block;
+  width: 80%;
+  padding: 0.75rem;
+  background-color: var(--main-color);
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  margin: 1rem auto 0;  
+  margin-top:30px;   
+  height: 40px; 
+}
+
+
+.loginform,
+.passwordform{
+  background-color: var(--card-color);
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  margin: 0.5rem 0;         
+  height: 50px;
+  display: flex;
+  align-items: center;      
+  box-sizing: border-box;  
+}
+
+.text_registration{
+  color:var(--text-color);
+  font-size:0.8rem;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.next{
+  color:var(--main-color);
+}
