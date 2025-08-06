@@ -8,14 +8,14 @@ class AddDishController extends Controller
 {
     public function addDishes(AddDishRequest $request)
     {
+        DB::beginTransaction();
         $requestData = $request->validated();
-        $dish = dish::create([
+        $dish = Dish::create([
             'restaurant_id' => $requestData['restaurant_id'],
             'name' => $requestData['name'],
             'price' => $requestData['price'],
             'description' => $requestData['description'],
         ]);
-        DB::beginTransaction();
         try {
             foreach ($requestData['imageUrl'] as $url) {
                 dish_image::create([

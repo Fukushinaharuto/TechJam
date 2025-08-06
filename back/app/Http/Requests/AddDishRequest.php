@@ -23,10 +23,11 @@ class AddDishRequest extends FormRequest
     {
         return [
             'restaurant_id' => ['required'],
-            "name" ['required'],
+            "name" => ['required'],
             "price" => ['required'],
             "description" => ['required'],
-            "imageUrl" => ['required']
+            "imageUrl" => ['required', 'array'],
+            "imageUrl.*" => ['url'], // 各要素が有効なURLであることを検証
         ];
     }
     public function messages(): array
