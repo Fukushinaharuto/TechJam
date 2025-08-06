@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-<<<<<<< HEAD
 use App\Models\Shop;
 
 class DishController extends Controller
@@ -17,10 +16,3 @@ class DishController extends Controller
     }
 }
 
-=======
-
-class DishController extends Controller
-{
-    //
-}
->>>>>>> b8c8121dd4d4ccb7eee7c9a64484978b4908abeb
