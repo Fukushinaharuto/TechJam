@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AddDishController extends Controller
+class DishController extends Controller
 {
-    public function addDishes(AddDishRequest $request)
+    public function store(DishRequest $request)
     {
         DB::beginTransaction();
         $requestData = $request->validated();
