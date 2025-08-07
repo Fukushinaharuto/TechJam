@@ -4,8 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import style from "./login.module.css";
 
-import Cookies from "js-cookie";
+//import Cookies from "js-cookie";
 
 export default function Page() {
     const router = useRouter();
@@ -27,21 +28,24 @@ export default function Page() {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen ">
+        <div className={style.container}>
+            <div className={style.title}>
+                ログイン
+            </div>
             <form onSubmit={loginApi} className="space-y-4 px-1 mt-1">
                 <div className="group">
-                    <label className="block text-base text-text mb-2">
-                        ユーザー名
+                    <label className={style.username}>
+                        
                     </label>
-                    <div className="relative">
+                    <div className={style.loginform}>
                         <input
                             type="text"
-                            className={`peer pl-12 h-[43px] w-full px-4 py-2 border rounded-md placeholder:text-base placeholder:focus:text-textOpacity group-hover:shadow-input focus:shadow-input focus:outline-none focus:border-text transition-shadow ${
+                            className={`peer pl-12 h-[43px] w-full px-4 py-2 border-none rounded-md placeholder:text-base placeholder:focus:text-textOpacity group-hover:shadow-input focus:shadow-input focus:outline-none focus:border-text transition-shadow ${
                                 isError
                                 ? "border-formError shadow-error"
                                 : "border-textOpacity"
                             }`}
-                            placeholder="山本 吾郎"
+                            placeholder="ユーザー名"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                         />
@@ -50,16 +54,17 @@ export default function Page() {
 
                 <div className="group">
                     <label className="block text-base text-text mb-2">
-                        パスワード
+                        
                     </label>
-                    <div className="relative">
+                    <div className={style.passwordform}>
                         <input
                             type={visibility ? "text" : "password"}
-                            className={`peer pl-12 h-[43px] w-full px-4 py-2 border rounded-md placeholder:text-base placeholder:focus:text-text group-hover:shadow-input focus:shadow-input focus:outline-none focus:border-text transition-shadow ${
+                            className={`peer pl-12 h-[43px] w-full px-4 py-2 border-none rounded-md placeholder:text-base placeholder:focus:text-text group-hover:shadow-input focus:shadow-input focus:outline-none focus:border-text transition-shadow ${
                             isError
                                 ? "border-formError shadow-error"
                                 : "border-textOpacity"
                             }`}
+                            placeholder="パスワード"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
@@ -72,23 +77,29 @@ export default function Page() {
                         alt="パスワードが見えないアイコン"
                         width={20}
                         height={20}
-                        className="absolute right-3 top-1/2 transform -translate-y-1/2"
+                        className={style.visibility}
                         />
                     </button>
                     </div>
                 </div>
                 {isError && (
                     <p className="text-formError text-error text-xs">
-                    メールアドレスまたはパスワードが正しくありません。
+                    ユーザー名またはパスワードが正しくありません。
                     </p>
                 )}
 
                 <button
                     type="submit"
-                    className="w-full p-2 h-14 text-base text-baseColor bg-accentDark rounded-md"
+                    className={style.login_button}
                 >
                     ログイン
                 </button>
+                <div className={style.text_registration}>
+                    新規登録の方は{" "}
+                    <Link href="/auth/registration" className={style.next}>
+                        こちら
+                    </Link>
+                </div>
             </form>
         </div>
     );
