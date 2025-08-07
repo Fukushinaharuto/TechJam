@@ -10,13 +10,11 @@ export default function Page() {
 
     return (
         <div>
-            <div className="w-full">
-                <Head
-                    title={"仕事"}
-                    image_url={"/icon-test.svg"}
-                />
-            </div>
-            <h2 className="text-3xl mt-10 mb-5 px-4">
+            <Head
+                title={"仕事"}
+                image_url={"/icon-test.svg"}
+            />
+            <h2 className="text-3xl mt-6 px-4">
                 プロフィール
             </h2>
             <div>
@@ -47,31 +45,20 @@ export default function Page() {
                                 {name}
                             </div>
                             <div className="flex text-xl items-center">
-                                {password}
+                                パスワード
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <h2 className="text-3xl mt-10 mb-5 px-4">
+            <h2 className="text-3xl my-6 px-4">
                 投稿一覧
             </h2>
-            <div className="flex overflow-x-auto space-x-4 p-4 [&::-webkit-scrollbar]:hidden">
-                <div className="w-[300px] flex-shrink-0">
-                    <ReviewContext 
-                        name={'料理名'}
-                        userImage={'/icon.svg'}
-                        dishImage={'/test.png'}
-                    />
-                </div>
-                <div className="w-[300px] flex-shrink-0">
-                    <ReviewContext 
-                        name={'料理名'}
-                        userImage={'/icon.svg'}
-                        dishImage={'/test.png'}
-                    />
-                </div>
+            <div className="w-[350px]">
+                <ReviewContext/>
             </div>
+            
+
         </div>
     );
 };
