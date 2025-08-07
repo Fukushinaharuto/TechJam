@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Favorite;
+use Illuminate\Support\Facades\DB;
 
 class FavoriteController extends Controller
 {
@@ -27,7 +28,7 @@ class FavoriteController extends Controller
         } catch (\Exception $e) {
 
             DB::rollBack();
-            
+
             // 失敗時のレスポンス
             return response()->json([
                     "success" => false,
