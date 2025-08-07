@@ -24,7 +24,7 @@ class RegisterRequest extends FormRequest
     {
         return [
             "name" => ['required', 'max:10', 'unique:users'],
-            "password" => ['required', 'confirmed', Password::defaults()]
+            "password" => ['required', Password::defaults()]
         ];
     }
 
@@ -35,7 +35,6 @@ class RegisterRequest extends FormRequest
             'name.max' => '名前は10文字以内で入力してください。',
             'name.unique' => 'この名前はすでに使用されています。',
             'password.required' => 'パスワードは必須です。',
-            'password.confirmed' => 'パスワードが一致しません。',
             'password.min' => 'パスワードは8文字以上でなければなりません。',
             'password.mixedCase' => 'パスワードには大文字と小文字の両方を含める必要があります。',
             'password.numbers' => 'パスワードには少なくとも1つの数字が必要です。',

@@ -13,7 +13,7 @@ export async function Register({ name, password }) {
             console.warn(error);
             return {
                 success: false,
-                messages: error.response?.data.messages || ["エラーが発生しました"],
+                messages: error.response?.data.message,
             };
         }
     );

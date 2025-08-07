@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Http\Requests;
@@ -24,7 +23,7 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'email'],
+            'name' => ['required', 'max:10'],
             'password' => ['required', Password::defaults()],
         ];
     }
@@ -32,8 +31,8 @@ class LoginRequest extends FormRequest
     public function messages()
     {
         return [
-            'email.required' => 'メールアドレスは必須です。',
-            'email.email' => '有効なメールアドレスを入力してください。',
+            'name.required' => 'ユーザー名は必須です。',
+            'name.max' => 'ユーザー名は10文字以内にしてください。',
             'password.required' => 'パスワードは必須です。',
             'password.min' => 'パスワードは8文字以上でなければなりません。',
             'password.mixedCase' => 'パスワードには大文字と小文字の両方を含める必要があります。',

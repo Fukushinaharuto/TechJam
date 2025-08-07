@@ -3,7 +3,7 @@ import Image from "next/image";
 export function ReviewContext({ userImage, name, dishImage }) {  
     
     return (    
-        <div className="bg-[var(--review)] p-4">
+        <div className="bg-[#FFF4E6] p-4">
             <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center">
                     <Image

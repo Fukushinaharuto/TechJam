@@ -11,9 +11,10 @@ export async function Login({ name, password }) {
         .then((response) => response.data)
         .catch((error) => {
             console.warn(error);
+            console.log(error.response?.data.message)
             return {
                 success: false,
-                messages: error.response?.data.messages || ["エラーが発生しました"],
+                messages: error.response?.data.message,
             };
         }
     );

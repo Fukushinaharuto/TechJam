@@ -5,37 +5,34 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import style from "./registration.module.css";
+import { Register } from "@/api/Register";
 
-//import Cookies from "js-cookie";
+import Cookies from "js-cookie";
 
 export default function Page() {
     const router = useRouter();
     const [visibility, setVisibility] = useState(false);              
-    const [confirmVisibility, setConfirmVisibility] = useState(false); // 確認パスワード
+    const [confirmVisibility, setConfirmVisibility] = useState(false);
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [confirm, setConfirm] = useState("");  
     const [isError, setIsError] = useState(false);
+    const [message, setMessage] = useState("");
 
     const registerApi = async (event) => {
         event.preventDefault();
-        const response = await register({ name, password });
-
         if (password !== confirm) {
+            setMessage('パスワードが一致していません。')
             setIsError(true);
             return;
         }
-
-        try {
-        const response = await register({ name, password });
+        const response = await Register({ name, password });
         if (response.success) {
             Cookies.set("authToken", response.token);
             router.push("/home");
         } else {
+            setMessage(response.messages)
             setIsError(true);
-        }
-        } catch {
-        setIsError(true);
         }
     };
 
@@ -121,9 +118,9 @@ export default function Page() {
                 </div>
                 
                 {isError && (
-                <p className="text-formError text-error text-xs">
-                    ユーザー名が既に存在しているか、パスワードが一致しません。
-                </p>
+                    <p className="text-formError text-error text-xs">
+                        {message}
+                    </p>
                 )}
 
                 <button
