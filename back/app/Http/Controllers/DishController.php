@@ -1,11 +1,4 @@
-<?php
 
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-
-class DishController extends Controller
-{
     public function store(DishRequest $request)
     {
         DB::beginTransaction();
@@ -30,4 +23,4 @@ class DishController extends Controller
         DB::commit();
         return response()->noContent(202);
     }
-}
+
