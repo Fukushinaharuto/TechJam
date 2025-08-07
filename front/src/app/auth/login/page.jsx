@@ -4,8 +4,9 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import style from "./login.module.css";
-
-//import Cookies from "js-cookie";
+import Link from "next/link";
+import Cookies from "js-cookie";
+import { Login } from "@/api/Login";
 
 export default function Page() {
     const router = useRouter();
@@ -13,16 +14,18 @@ export default function Page() {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [isError, setIsError] = useState(false);
+    const [message, setMessage] = useState("");
 
     const loginApi = async (event) => {
         event.preventDefault();
         const response = await Login({ name, password });
-
+        console.log(response.data)
         if (response.success) {
             Cookies.set('authToken', response.token);
             router.push("/home");
         } else {
             setIsError(true);
+            setMessage(response.messages)
         }
     };
 
@@ -83,7 +86,7 @@ export default function Page() {
                 </div>
                 {isError && (
                     <p className="text-formError text-error text-xs">
-                    ユーザー名またはパスワードが正しくありません。
+                        {message}
                     </p>
                 )}
 
