@@ -68,6 +68,9 @@
   box-sizing: border-box;  
 }
 
+.passwordform_confirm {
+  margin-top: 1rem; 
+}
 
 .text_login{
   color:var(--text-color);
