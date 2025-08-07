@@ -7,14 +7,6 @@ export function Head({ title, iconImage }) {
             <h1 className="text-4xl">
                 {title}
             </h1>
-            {iconImage && (
-                <Image
-                    src={iconImage}
-                    alt="アイコン"
-                    width={42}
-                    height={42}
-                />
-            )}
         </div>
     );
 };
