@@ -4,7 +4,7 @@ import Link from "next/link";
 export function Footer() {  
 
     return (    
-        <div className="flex bg-[var(--footer)] justify-between items-center px-12 py-2"> 
+        <div className="flex bg-[var(--footer)] justify-between items-center px-12 py-2 gap-4"> 
             <div>
                 <Link 
                     href="/home"
@@ -12,8 +12,8 @@ export function Footer() {
                     <Image
                         className="mx-auto"
                         src="/home.svg"
-                        width={40}
-                        height={40}
+                        width={60}
+                        height={60}
                         alt="ホームアイコン"
                     />
                 </Link>
@@ -25,8 +25,8 @@ export function Footer() {
                     <Image
                         className="mx-auto"
                         src="/favorite.svg"
-                        width={40}
-                        height={40}
+                        width={60}
+                        height={60}
                         alt="お気に入りアイコン"
                     />
                 </Link>
@@ -38,8 +38,8 @@ export function Footer() {
                     <Image
                         className="mx-auto"
                         src="/post.svg"
-                        width={40}
-                        height={40}
+                        width={60}
+                        height={60}
                         alt="投稿アイコン"
                     />
                 </Link>
@@ -51,21 +51,21 @@ export function Footer() {
                     <Image
                         className="mx-auto"
                         src="/notification.svg"
-                        width={40}
-                        height={40}
+                        width={60}
+                        height={60}
                         alt="イベントアイコン"
                     />
                 </Link>
             </div>
-            <div>
+            <div className="">
                 <Link 
                     href="/mypage"
                 >     
                     <Image
                         className="mx-auto"
                         src="/icon.svg"
-                        width={40}
-                        height={40}
+                        width={60}
+                        height={60}
                         alt="ユーザーアイコン"
                     />
                 </Link>
