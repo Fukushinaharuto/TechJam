@@ -1,73 +1,98 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { MypageIndex } from "@/api/MypageIndex";
 
 export function Footer() {  
-
+    const [iconImage, setIconImage] = useState("");
+    useEffect(() => {
+        const Index = async() => {
+            const response = await MypageIndex() 
+            if (response.imageUrl) {
+                const fullUrl = `${process.env.NEXT_PUBLIC_API_URL}storage/user_images/${response.imageUrl}`;
+                setIconImage(fullUrl);
+                console.log(fullUrl);                  
+            } 
+        }
+        Index()
+    }, []);
     return (    
-        <div className="flex bg-[var(--footer)] justify-between items-center px-12 py-2 gap-4"> 
+        <div className="flex bg-[var(--footer)] justify-center items-center px-12 py-2 gap-4"> 
             <div>
                 <Link 
                     href="/home"
                 >     
-                    <Image
-                        className="mx-auto"
-                        src="/home.svg"
-                        width={60}
-                        height={60}
-                        alt="ホームアイコン"
-                    />
+                    <div className="w-[50px] h-[50px]">
+                        <Image
+                            className="mx-auto"
+                            src="/home.svg"
+                            width={60}
+                            height={60}
+                            alt="ホームアイコン"
+                        />
+                    </div>
                 </Link>
             </div>
             <div>
                 <Link 
                     href="/favorites"
                 >     
-                    <Image
-                        className="mx-auto"
-                        src="/favorite.svg"
-                        width={60}
-                        height={60}
-                        alt="お気に入りアイコン"
-                    />
+                    <div className="w-[50px] h-[50px]">
+                        <Image
+                            className="mx-auto"
+                            src="/favorite.svg"
+                            width={60}
+                            height={60}
+                            alt="お気に入りアイコン"
+                        />
+                    </div>
                 </Link>
             </div>
             <div>
                 <Link 
-                    href="/reviews"
+                    href="/reviews/create"
                 >     
-                    <Image
-                        className="mx-auto"
-                        src="/post.svg"
-                        width={60}
-                        height={60}
-                        alt="投稿アイコン"
-                    />
+                    <div className="w-[50px] h-[50px]">
+                        <Image
+                            className="mx-auto"
+                            src="/post.svg"
+                            width={60}
+                            height={60}
+                            alt="投稿アイコン"
+                        />
+                    </div>
                 </Link>
             </div>
             <div>
                 <Link
                     href="/events"
                 >     
-                    <Image
-                        className="mx-auto"
-                        src="/notification.svg"
-                        width={60}
-                        height={60}
-                        alt="イベントアイコン"
-                    />
+                    <div className="w-[50px] h-[50px]">
+                        <Image
+                            className="mx-auto"
+                            src="/notification.svg"
+                            width={60}
+                            height={60}
+                            alt="イベントアイコン"
+                        />
+                    </div>
                 </Link>
             </div>
             <div className="">
                 <Link 
                     href="/mypage"
                 >     
-                    <Image
-                        className="mx-auto"
-                        src="/icon.svg"
-                        width={60}
-                        height={60}
-                        alt="ユーザーアイコン"
-                    />
+                    <div className="w-[50px] h-[50px] rounded-full overflow-hidden relative flex-shrink-0 bg-gray-200">
+                        <Image
+                            className="mx-auto"
+                            src={iconImage}
+                            width={60}
+                            height={60}
+                            alt="イベントアイコン"
+                            unoptimized
+                        />
+                    </div>
                 </Link>
             </div>
         </div>

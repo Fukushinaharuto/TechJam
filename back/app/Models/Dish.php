@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dish extends Model
 {
+
+    protected $fillable = [
+        'name',
+        'price',
+        'restaurant_id',
+    ];
+
     public function restaurant()
     {
         return $this->belongsTo(Restaurant::class);

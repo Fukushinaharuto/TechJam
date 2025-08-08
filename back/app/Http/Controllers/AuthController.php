@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Storage;
 
 
 class AuthController extends Controller
@@ -28,7 +28,7 @@ class AuthController extends Controller
                     'messages' => ["ユーザー名またはパスワードが間違っています"]
                 ]);
             }
-        }catch(e){
+        }catch(\Exception $e){
             return response()->json([
                 'success' => false,
                 'messages' => ["予期せぬエラーが発生しました"]
@@ -49,7 +49,7 @@ class AuthController extends Controller
                 'token' => $token,
                 'success' => true,
             ]);
-        }catch(e){
+        }catch(\Exception $e){
             return response()->json([
                 'success' => false,
                 'messaages' => ["ユーザー名が使用されているか、パスワードが間違っています"]

@@ -5,11 +5,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DishController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RestaurantController;
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/dish', [DishController::class, 'store']);
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
-Route::middleware('auth:sanctum')->get('/me', [UserController::class, 'me']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user', [UserController::class, 'index']);
+    Route::post('/user/update', [UserController::class, 'update']);
+    Route::get('/user/image', [UserController::class, 'image']);
+    Route::post('restaurant/store', [RestaurantController::class, 'store']);
+    Route::post('dish/store', [DishController::class, 'store']);
+    Route::get('restaurant/select', [RestaurantController::class, 'select']);
+});

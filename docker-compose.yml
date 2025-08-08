@@ -13,7 +13,6 @@ services:
     build: ./back/
     volumes:
       - ./back:/back
-      - back_vendor:/back/vendor
     ports:
       - 8006:8000
     depends_on:
@@ -42,5 +41,4 @@ services:
 
 volumes:
   db_data:
-  back_vendor:
   front_node_modules:

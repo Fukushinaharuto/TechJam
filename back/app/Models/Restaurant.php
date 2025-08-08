@@ -6,6 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Restaurant extends Model
 {
+    protected $fillable = [
+        'name',
+        'place_id',
+        'latitude',
+        'longitude',
+    ];
+
+
     public function dishes()
     {
         return $this->hasMany(Dish::class);

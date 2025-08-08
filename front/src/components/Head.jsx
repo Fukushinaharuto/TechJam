@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export function Head({ title, iconImage }) {  
+export function Head({ title }) {  
     
     return (    
         <div className="relative flex justify-center border-b-2 border-[var(--footer)] py-4">

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('password');
+            $table->string('image_url')->default('icon-test.svg');
             $table->rememberToken();
             $table->timestamps();
         });
