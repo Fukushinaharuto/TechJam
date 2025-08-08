@@ -7,7 +7,7 @@ import { useState } from "react";
 import style from "./registration.module.css";
 import { Register } from "@/api/Register";
 
-import Cookies from "js-cookie";
+//import Cookies from "js-cookie";
 
 export default function Page() {
     const router = useRouter();
