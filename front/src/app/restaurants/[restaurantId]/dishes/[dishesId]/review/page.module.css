@@ -43,7 +43,7 @@
 .card {
     position: relative;
     background-color: var(--card-color);
-    margin: 1.5rem 1rem;
+    margin: 0.5rem 1rem; /* カード間の余白を狭く */
     border-radius: 0.75rem;
     overflow: hidden;
 }
