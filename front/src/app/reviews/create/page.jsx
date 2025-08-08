@@ -4,6 +4,11 @@ import { useState } from "react";
 import style from "./page.module.css";
 
 export default function Page() {
+  // 仮の選択肢データ
+  const storeOptions = ["店舗A", "店舗B", "店舗C"];
+  const dishOptions = ["料理X", "料理Y", "料理Z"];
+  const [selectedStore, setSelectedStore] = useState("");
+  const [selectedDish, setSelectedDish] = useState("");
  
   const [ratings, setRatings] = useState({
     appearance: 0,
@@ -61,17 +66,33 @@ export default function Page() {
       <div className={style.card_group}>
         <div className={style.input_row}>
           <div className={style.title_required}>店舗名</div>
-          <input type="text" placeholder="店舗名" className={style.input} />
+          <select
+            className={style.input}
+            value={selectedStore}
+            onChange={e => setSelectedStore(e.target.value)}
+          >
+            <option value="" disabled>店舗を選択</option>
+            {storeOptions.map((store) => (
+              <option key={store} value={store}>{store}</option>
+            ))}
+          </select>
         </div>
-        <span className={style.card_progress}>1/7</span>
       </div>
 
       <div className={style.card_group}>
         <div className={style.input_row}>
           <div className={style.title_required}>料理名</div>
-          <input type="text" placeholder="料理名" className={style.input} />
+          <select
+            className={style.input}
+            value={selectedDish}
+            onChange={e => setSelectedDish(e.target.value)}
+          >
+            <option value="" disabled>料理を選択</option>
+            {dishOptions.map((dish) => (
+              <option key={dish} value={dish}>{dish}</option>
+            ))}
+          </select>
         </div>
-        <span className={style.card_progress}>2/7</span>
       </div>
 
       <div className={style.card_group}>
@@ -79,7 +100,6 @@ export default function Page() {
         <div className={style.photo}>
           <input type="file" accept="image/*" className={style.input} />
         </div>
-        <span className={style.card_progress}>3/7</span>
       </div>
 
       <div className={style.card_group}>
@@ -153,11 +173,10 @@ export default function Page() {
             <button type="button" onClick={handleAddCustomRating} style={{background:'#FF9F61',color:'#fff',border:'none',borderRadius:'50%',width:'2em',height:'2em',fontSize:'1.3em',cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center'}}>＋</button>
           </div>
         </dd>
-        <span className={style.card_progress}>4/7</span>
       </div>
 
       <div className={style.card_group}>
-        <div className={style.title_required}>タグ</div>
+        <div className={style.title}>タグ</div>
         <div className={style.evaluation} style={{display:'flex',alignItems:'center',gap:'0.5rem',flexWrap:'wrap'}}>
           {tags.map((tag) => (
             <span key={tag} style={{background:'#ffe0b2',borderRadius:'1em',padding:'0.2em 0.8em',marginRight:'0.3em',display:'flex',alignItems:'center',fontSize:'0.95em'}}>
@@ -186,7 +205,6 @@ export default function Page() {
             placeholder="コメントを入力してください"
           />
         </div>
-        <span className={style.card_progress}>6/7</span>
       </div>
 
       <div className={style.card_group}>
@@ -200,7 +218,6 @@ export default function Page() {
             style={{maxWidth:'180px'}}
           />
         </div>
-        <span className={style.card_progress}>7/7</span>
       </div>
 
       <div style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0' }}>
