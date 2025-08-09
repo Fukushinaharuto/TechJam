@@ -12,6 +12,14 @@ use App\Http\Requests\DishRequest;
 
 class DishController extends Controller
 {
+    public function select(Request $request)
+    {
+        $dishes = Dish::select('id', 'name')->get();
+        return response()->json([
+            'dishes' => $dishes
+        ]);
+    }
+
     public function store(Request $request)
     {
         DB::beginTransaction();

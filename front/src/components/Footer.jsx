@@ -84,14 +84,16 @@ export function Footer() {
                     href="/mypage"
                 >     
                     <div className="w-[50px] h-[50px] rounded-full overflow-hidden relative flex-shrink-0 bg-gray-200">
+                    {iconImage ? (
                         <Image
                             className="mx-auto"
                             src={iconImage}
                             width={60}
                             height={60}
-                            alt="イベントアイコン"
+                            alt="icon"
                             unoptimized
                         />
+                    ) : null}
                     </div>
                 </Link>
             </div>

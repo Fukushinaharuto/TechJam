@@ -1,0 +1,93 @@
+:root {
+    --main-color:     #FF9F61;
+    --accent-color:   #FF8A65;
+    --base-color:     #FFFFFF;
+    --card-color:     #FFF4E6;
+    --text-color:     #333333;
+    --subtext-color:  #666666;
+  
+    --title-size:     24px;
+    --text-size:      16px;
+    --text2-size:     14px;
+  
+    --label-width:    5rem;
+    --pad-side:       1.5rem;
+    --gap-vertical:   0.75rem;
+  }
+  
+  .container {
+    padding: 0.5rem;
+    background: none;
+  }
+  
+  .detail {
+    background: none;
+    border-radius: 0.5rem;
+    padding: 0.7rem;
+  }
+  
+  .title {
+    font-size: var(--title-size);
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: var(--gap-vertical);
+  }
+  
+  .detailBody {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--gap-vertical);
+    flex-wrap: nowrap;
+  }
+  
+  .label {
+    flex-shrink: 0;
+    width: var(--label-width);
+    font-size: var(--text2-size);
+    color: var(--subtext-color);
+  }
+  
+  .value {
+    font-size: var(--text-size);
+    color: var(--text-color);
+    line-height: 1.5;
+    word-break: break-all;
+  }
+  
+  .reserve_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--main-color);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1.1rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: background 0.2s;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  
+  .reserve_button:hover {
+    background: var(--accent-color);
+  }
+  
+  @media (max-width: 600px) {
+    .detailBody {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: nowrap;
+    }
+    .reserve_button {
+      width: auto;
+      margin-left: 0.5rem;
+      margin-top: 0;
+      justify-content: center;
+    }
+  }

@@ -13,6 +13,13 @@ class RestaurantController extends Controller
         return response()->json([
             'restaurants' => $restaurants
         ]);
-        
+    }
+
+    public function index()
+    {
+        $restaurants = Restaurant::all();
+        return response()->json([
+            'restaurants' => $restaurants
+        ]);
     }
 }
